@@ -27,15 +27,20 @@ const FormCreateProject = () => {
     setOneClient(e.target.value);
   };
 
+  const normalIdProject = item => {
+    if (item) {
+      return `${item.id}-${item.id_project}`;
+    }
+    return '';
+  };
+
   const handleChangeProject = e => {
     const string = e.target.value;
-    const newObject = projects.find(
-      item => item.id_project === string.slice(2),
-    );
+    const newObject = projects.find(item => normalIdProject(item) === string);
     const { id_dep_client } = newObject;
+    setOneProject(newObject);
     if (oneClient !== id_dep_client) {
       getOneClient(id_dep_client).then(data => {
-        setOneProject(newObject);
         setOneClient(data.client.id_dep_client);
       });
     }
@@ -70,8 +75,7 @@ const FormCreateProject = () => {
         .catch(() => toast.error('Проект з цим клієнтом і цією датою вже є'));
     }
   };
-  console.log(clients);
-  console.log(projects);
+  console.log(oneProject);
 
   return (
     <>
@@ -81,6 +85,7 @@ const FormCreateProject = () => {
           text={'Client №'}
           items={clients}
           handleChange={handleChange}
+          normalIdProject={normalIdProject}
         />
         <DivButton>
           <Button boolean={!oneClient}>Create Project</Button>
@@ -90,6 +95,7 @@ const FormCreateProject = () => {
           text="Project №"
           items={projects}
           handleChange={handleChangeProject}
+          normalIdProject={normalIdProject}
         />
       </Form>
     </>

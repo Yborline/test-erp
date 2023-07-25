@@ -1,12 +1,12 @@
 import { Label, Select } from './SelectProject.styled';
 
-const SelectProject = ({ oneProject, text, items, handleChange }) => {
-  const normalIdProject = item => {
-    if (item) {
-      return `${item.id}-${item.id_project}`;
-    }
-    return '';
-  };
+const SelectProject = ({
+  oneProject,
+  text,
+  items,
+  handleChange,
+  normalIdProject,
+}) => {
   return (
     <>
       <Label htmlFor="department-select">
