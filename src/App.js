@@ -1,16 +1,16 @@
 // import "./App.css";
-import { Suspense, lazy, useContext } from "react";
+import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import { Container } from "./App.styled";
 import { ThemeProvider } from "styled-components";
+// import ClientProject from "./Pages/ClientProject/ClientProject";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import ctx from "./context/themeContext";
-import { lightTheme, darkTheme } from "./theme/ThemeConfig";
+import { lightTheme } from "./theme/ThemeConfig";
 
 const App = () => {
-  const { themes } = useContext(ctx);
-
   const ClientProject = lazy(() =>
     import("./Pages/ClientProject/ClientProject")
   );
@@ -25,6 +25,18 @@ const App = () => {
           </Routes>
         </Suspense>
       </Container>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </ThemeProvider>
   );
 };

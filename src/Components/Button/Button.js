@@ -1,7 +1,7 @@
-import { ButtonStyled } from "./Button.styled";
+import { ButtonStyled } from './Button.styled';
 
-const Button = ({ children }) => {
-  return <ButtonStyled>{children}</ButtonStyled>;
+const Button = ({ boolean, children }) => {
+  return <ButtonStyled disabled={boolean}>{children}</ButtonStyled>;
 };
 
 export default Button;
