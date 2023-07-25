@@ -1,13 +1,13 @@
-import { Component } from "react";
-import themeContext from "./themeContext";
+import { Component } from 'react';
+import themeContext from './themeContext';
 export default class ProviderTheme extends Component {
   state = {
-    themes: "light",
+    themes: 'light',
     toggleTheme: () => {
-      if (this.state.themes === "light") {
-        this.setState({ themes: "dark" });
+      if (this.state.themes === 'light') {
+        this.setState({ themes: 'dark' });
       } else {
-        this.setState({ themes: "light" });
+        this.setState({ themes: 'light' });
       }
     },
   };

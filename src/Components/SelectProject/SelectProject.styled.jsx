@@ -11,7 +11,7 @@ border: none;
 outline: none;
 padding: 5px;
 padding-right: 40px;
-
+margin-top: 15px;
 border-bottom: 1px double ${({ theme }) => theme.borderBottom};
 margin-left: 30px;
 background-color:${({ theme }) => theme.MainBackground};
